@@ -108,7 +108,7 @@ module.exports = {
       filename: 'branding/styles/main.css'
     }),
     new CleanWebpackPlugin()
-  ]
+  ],
 
-  //devtool: devMode ? 'source-map' : ''
+  devtool: devMode ? 'source-map' : ''
 };

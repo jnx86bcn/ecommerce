@@ -10,14 +10,15 @@ const logger = createLogger({
   collapsed: true
 });
 
-const middlewares = applyMiddleware(thunk, logger);
+const middlewaresDev = applyMiddleware(thunk, logger);
+const middlewaresPro = applyMiddleware(thunk);
 
 const rootReducer = combineReducers({
   reducers
 });
 
 export function initStore() {
-  const middles = devMode != true ? {} : middlewares;
+  const middlewares = devMode != true ? middlewaresPro : middlewaresDev;
 
-  return createStore(rootReducer, middles);
+  return createStore(rootReducer, middlewares);
 }
